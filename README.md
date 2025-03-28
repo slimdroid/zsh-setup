@@ -2,6 +2,8 @@
 
 ## Install [Homebrew](https://github.com/robbyrussell/oh-my-zsh){:target="_blank" rel="noopener noreferrer"}
 
+<a href="https://www.zsh.org/" target="_blank" rel="noopener noreferrer">ZSH</a>
+
 ```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```

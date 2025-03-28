@@ -1,6 +1,6 @@
 # Ultimate guide Oh my zsh for Macbook on Apple Silicon.
 
-## Install [Homebrew](https://github.com/robbyrussell/oh-my-zsh)
+## Install [Homebrew](https://github.com/robbyrussell/oh-my-zsh){:target="_blank" rel="noopener noreferrer"}
 
 ```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"

@@ -1,14 +1,44 @@
 #!/bin/bash
 
-# Обновляем систему
-brew update
+# Определяем операционную систему
+OS="$(uname)"
 
-# Устанавливаем Zsh, если он не установлен
-if ! command -v zsh &> /dev/null; then
-    echo "Zsh не найден. Устанавливаем..."
-    brew install zsh
+if [[ "$OS" == "Darwin" ]]; then
+    echo "Определена MacOS"
+    
+    # Обновляем brew
+    brew update
+    
+    # Устанавливаем Zsh, если он не установлен
+    if ! command -v zsh &> /dev/null; then
+        echo "Zsh не найден. Устанавливаем..."
+        brew install zsh
+    else
+        echo "Zsh уже установлен."
+    fi
+
+elif [[ "$OS" == "Linux" ]]; then
+    echo "Определен Linux"
+    
+    # Обновляем пакетный менеджер
+    sudo apt update -y && sudo apt upgrade -y
+    
+    # Устанавливаем curl, если его нет
+    if ! command -v curl &> /dev/null; then
+        echo "Устанавливаем curl..."
+        sudo apt install -y curl
+    fi
+    
+    # Устанавливаем Zsh, если его нет
+    if ! command -v zsh &> /dev/null; then
+        echo "Устанавливаем Zsh..."
+        sudo apt install -y zsh
+    else
+        echo "Zsh уже установлен."
+    fi
 else
-    echo "Zsh уже установлен."
+    echo "Неизвестная операционная система. Скрипт поддерживает только MacOS и Linux."
+    exit 1
 fi
 
 # Устанавливаем Oh My Zsh
